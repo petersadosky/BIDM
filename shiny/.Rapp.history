@@ -1,0 +1,2205 @@
+z = 1:2
+which(z == y)
+y = c(2,4,6,8)
+which(z == y)
+y = 1:5
+z = 5:6
+y = 1:5
+which(z == y)
+x
+which(x$Cluster == 217)
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(clusters$Cluster) == max(table(clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	print(clusters.index)#
+}
+cluster.selector(user.cluster(reviews$user[3]))
+sort
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(clusters$Cluster) == max(table(clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	print(sort(clusters.index))#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+x$Cluster
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(clusters$Cluster) == max(table(clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	print(best.cluster)#
+	if (length(best.cluster) > 0) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+x[34,]
+sample(34, 1)
+?sample
+sample(c(34), 1)
+sample(c(34, 1), 1)
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(clusters$Cluster) == max(table(clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	print(best.cluster)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(clusters$Cluster) == max(table(clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+x
+cluster.selector(user.cluster(reviews$user[3]))
+head(business)
+restaurant.selector(cluster.selector(user.cluster(reviews$user[3])))
+restaurant.selector <- function(cluster.selection) {#
+	cluster <- cluster.selection#
+	businesses <- which(business$Cluster == cluster)#
+	print(businesses)#
+}#
+#
+restaurant.selector(cluster.selector(user.cluster(reviews$user[3])))
+recommendation <- function(cluster.selection, user) {#
+	cluster <- cluster.selection#
+	businesses <- business[which(business$Cluster == cluster), 1]#
+	print(businesses)#
+}#
+#
+recommendation(cluster.selector(user.cluster(reviews$user[3])))
+a = reviews$user[3]
+which(reviews$user == a)
+head(reviews)
+reviews[which(reviews$user == a), 3]
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	businesses <- business[which(business$Cluster == cluster.selector(user.cluster(userID))), 1]#
+	print(businesses)#
+	print(previous.restaurants)#
+}#
+#
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == cluster.selector(user.cluster(userID))), 1]#
+	print(restaurants)#
+	print(previous.restaurants)#
+}#
+#
+recommendation(reviews$user[3])
+x = c("hello", "hi", "no")
+y = c("hello", "peter", "ok")
+intersect(x, y)
+!intersect(x, y)
+outersect
+outersect <- function(x, y) {#
+	return(sort(c(setdiff(x, y), setdiff(y, x))))#
+}
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == cluster.selector(user.cluster(userID))), 1]#
+	print(outersect(previous.restaurants, restaurants))#
+}#
+#
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == cluster.selector(user.cluster(userID))), 1]#
+	print(previous.restaurants)#
+	# print(outersect(previous.restaurants, restaurants))#
+}#
+#
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == cluster.selector(user.cluster(userID))), 1]#
+	print(restaurants)#
+}#
+#
+recommendation(reviews$user[3])
+head(business)
+cl = 232
+business[which(business$Cluster == 232), 1]
+x = 1:10
+y = c(5, 10, 15)
+x
+y
+x %in% y
+x[x %in% y]
+x[!(x %in% y)]
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == cluster.selector(user.cluster(userID))), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+recommendation(reviews$user[3])
+# BIDM S15 Final Project Recommendation Engine#
+#
+# Goal of code: Map yelp business dataset variables onto 2d clustering space#
+# and based on this space, make user recommendations for future restaurants#
+# Clusters are formed in SAS EM, resulting clusters are saved as a csv#
+# file "yelp-clusters.csv", which is imported here and used to make #
+# recommendation#
+#
+# Review data from yelp. Large csv file, this will take awhile to run#
+reviews <- read.csv("~/Documents/School/94832 - S15/NEW-yelp-reviews.csv",#
+				   stringsAsFactors=FALSE)#
+#
+# We are only interested in the user ID, rating, and business ID fields #
+# in this dataset#
+reviews <- reviews[,c(2, 4, 7)]#
+names(reviews) <- c("user", "rating", "business")#
+#
+# Import clusters from SAS EM#
+business <- read.csv("~/Documents/School/94832 - S15/yelp-clusters.csv",#
+ 					 stringsAsFactors=FALSE)#
+#
+# Find, for a given user, what restaurants he/she has been to#
+# how much they liked them, and what clusters those clusters fall into#
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:3], rating)#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+#user.cluster(reviews$user[3])#
+#
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+# cluster.selector(user.cluster(reviews$user[3]))	#
+#
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == #
+				   cluster.selector(user.cluster(userID))), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+recommendation(reviews$user[3])
+reviews <- read.csv("~/Documents/School/94832 - S15/NEW-yelp-reviews.csv",
+stringsAsFactors=FALSE)
+reviews <- reviews[,c(2, 4, 7)]#
+names(reviews) <- c("user", "rating", "business")#
+#
+# Import clusters from SAS EM#
+business <- read.csv("~/Documents/School/94832 - S15/yelp-clusters.csv",#
+ 					 stringsAsFactors=FALSE)
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:3], rating)#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}
+reviews$user[3]
+user.cluster(reviews$user[3])
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}
+cluster.selector(user.cluster(reviews$user[3]))
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == #
+				   cluster.selector(user.cluster(userID))), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}
+recommendation(reviews$user[3])
+reviews[3,]
+head(business)
+user.cluster(reviews$user[3])
+head(reviews)
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+head(reviews)
+user.cluster(reviews$user[3])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[3])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+x=user.cluster(reviews$user[3])
+x
+table(x$State)
+max(table(x$State))
+table(x$State)
+which(table(x$State) == max(table(x$State)))
+names(which(table(x$State) == max(table(x$State))))
+which(x$State == names(which(table(x$State) == max(table(x$State)))))
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[3])
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))	#
+#
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == #
+				   cluster.selector(user.cluster(userID))), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+recommendation(reviews$user[3])
+x
+head(business)
+recommendation(reviews$user[3])
+recommendation(reviews$user[4])
+recommendation(reviews$user[5])
+recommendation(reviews$user[6])
+recommendation(reviews$user[4])
+user.cluster(reviews$user[4])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	print(businesses)#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[4])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	print(target)#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}
+user.cluster(reviews$user[4])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		print(biz)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[4])
+user.cluster(reviews$user[3])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+		else {#
+			return(NA)#
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[3])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+		else {#
+			return(NA)#
+		}#
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[3])
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+cluster.selector(user.cluster(reviews$user[4]))
+cluster.selector(user.cluster(reviews$user[3]))
+recommendation(reviews$user[3])
+cluster.selector <- function(clusters) {#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	print(best.cluster)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+cluster.selector <- function(clusters) {#
+	if (length(clusters) == 0) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+cluster.selector <- function(clusters) {#
+	if (length(clusters) == 0) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	print(highest.stars)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+user.cluster(reviews$user[3])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(business) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[3])
+user.cluster(reviews$user[4])
+user.cluster(reviews$user[3])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	print(rating)#
+	if (length(business) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[3])
+user.cluster(reviews$user[4])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[4])
+user.cluster(reviews$user[3])
+cluster.selector <- function(clusters) {#
+	if (length(clusters) == 0) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+cluster.selector(user.cluster(reviews$user[4]))
+user.cluster(reviews$user[4])
+user.cluster(reviews$user[4]) == NA
+is.na(user.cluster(reviews$user[4]))
+cluster.selector <- function(clusters) {#
+	if (is.na(clusters)) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[4]))
+cluster.selector(user.cluster(reviews$user[3]))
+cluster.selector <- function(clusters) {#
+	print(sum(is.na(clusters)))#
+	if (sum(is.na(clusters))) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[3]))
+cluster.selector(user.cluster(reviews$user[4]))
+cluster.selector <- function(clusters) {#
+	if (sum(is.na(clusters)) == 1) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+cluster.selector(user.cluster(reviews$user[4]))
+cluster.selector(user.cluster(reviews$user[3]))
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	restaurants <- business[which(business$Cluster == #
+				   cluster.selector(user.cluster(userID))), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+recommendation(reviews$user[3])
+recommendation(reviews$user[4])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	print(clust)#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+recommendation(reviews$user[4])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+recommendation(reviews$user[4])
+recommendation(reviews$user[3])
+sapply(reviews$user[1:10], recommendation)
+reviews$user[1:10]
+sapply(reviews$user[1:10], recommendation)
+sapply(reviews$user[1], recommendation)
+sapply(reviews$user[1:2], recommendation)
+sapply(reviews$user[1:3], recommendation)
+sapply(reviews$user[1:4], recommendation)
+sapply(reviews$user[1:5], recommendation)
+sapply(reviews$user[1:6], recommendation)
+sapply(reviews$user[1:7], recommendation)
+sapply(reviews$user[1:8], recommendation)
+recommendation(reviews$user[8])
+user.cluster(reviews$user[8])
+cluster.selector(user.cluster(reviews$user[8]))
+cluster.selector <- function(clusters) {#
+	if (sum(is.na(clusters)) == 1) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	print(best.cluster)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+#
+# Test case:#
+cluster.selector(user.cluster(reviews$user[8]))
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	print(clusters)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	print(clusters)#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	print(clusters)#
+	clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[8])
+x= user.cluster(reviews$user[8])
+x
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	print(clusters)#
+	#clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	#print(clusters)#
+	#clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	#print(clusters)#
+	#clusters <- clusters[which(x$State == names(which(table(x$State) == max(table(x$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+x=user.cluster(reviews$user[8])
+x
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	print(clusters)#
+	clusters <- clusters[which(clusters$State == names(which(table(clusters$State) == max(table(clusters$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+user.cluster(reviews$user[8])
+sapply(reviews$user[1:8], recommendation)
+recommendation(reviews$user[8])
+x=recommendation(reviews$user[8])
+x
+x=recommendation(reviews$user[8])
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	print(possiblities)#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	print(possibilities)#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	#possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	#if (length(possibilities) == 1) {#
+	#	return(possibilities)#
+	#}#
+	#else {#
+	#	return(sample(possibilities, 1))#
+	#}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[3])
+cluster.selector(user.cluster(reviews$user[8]))
+cluster.selector <- function(clusters) {#
+	if (sum(is.na(clusters)) == 1) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}
+cluster.selector(user.cluster(reviews$user[8]))
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	#clusters <- clusters[which(clusters$State == names(which(table(clusters$State) == max(table(clusters$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+# Test case:#
+user.cluster(reviews$user[8])
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { return(NA) }#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	# this might not work#
+	clusters <- clusters[which(clusters$State == names(which(table(clusters$State) == max(table(clusters$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+# Test case:#
+user.cluster(reviews$user[8])
+cluster.selector(user.cluster(reviews$user[8]))
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	print(possibilities)#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	print(possibilities)#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[3])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[3])
+recommendation(reviews$user[8])
+sapply(reviews$user[1:8], recommendation)
+sapply(reviews$user[1:100], recommendation)
+sapply(reviews$user[1:50], recommendation)
+sapply(reviews$user[1:25], recommendation)
+sapply(reviews$user[1:15], recommendation)
+sapply(reviews$user[1:10], recommendation)
+sapply(reviews$user[1:9], recommendation)
+sapply(reviews$user[1:8], recommendation)
+sapply(reviews$user[9], recommendation)
+user.cluster(reviews$user[9])
+cluster.selector(user.cluster(reviews$user[9]))
+recommendation(reviews$user[9])
+reviews$user[9]
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	print(clust)#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[9])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	print(possibilities)#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[9])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	print(restaurants)#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[9])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	print(previous.restaurants)#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[9])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	print(possibilities)#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[9])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	print(length(possibilities))#
+	if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[9])
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 0) {#
+		return("No rec")#
+	}#
+	else if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[9])#
+sapply(reviews$user[9], recommendation)
+sapply(reviews$user[1:10], recommendation)
+sapply(reviews$user[1:100], recommendation)
+x = read.csv("https://docs.google.com/a/andrew.cmu.edu/spreadsheets/d/10T-cI4L5AsE4DEMjYsdawqEcx6L6VYMwsk42PeV4U6o/edit#gid=152440792")
+library(RCurl)
+x = getURL("https://docs.google.com/a/andrew.cmu.edu/spreadsheets/d/10T-cI4L5AsE4DEMjYsdawqEcx6L6VYMwsk42PeV4U6o/edit#gid=152440792")
+y = read.csv(y)
+y = read.csv(x)
+y
+x
+library(data.table)
+x = fread("~/Documents/School/94832 - S15/NEW-yelp-reviews.csv")
+head(x)
+class(x)
+table(x$V7)
+head(x)
+x = setDF(x)
+head(x)
+setDF <- function(x) {#
+  # setDF(fread(filename)) much faster than read.csv(filename)#
+  # 'fread' from library(data.table)#
+  # setDF from data.table github, not in current data.table release#
+    if (!is.data.table(x)) stop("setDF only accepts data.table as input")#
+    # copied from as.data.frame.data.table#
+    setattr(x, "row.names", .set_row_names(nrow(x)))#
+    setattr(x, "class", "data.frame")#
+    setattr(x, "sorted", NULL)#
+    setattr(x, ".internal.selfref", NULL)#
+    invisible(x)#
+}
+reviews <- setDF(fread("~/Documents/School/94832 - S15/NEW-yelp-reviews.csv"))
+library(data.table)
+library(data.table)#
+#
+setDF <- function(x) {#
+  # setDF(fread(filename)) much faster than read.csv(filename)#
+  # 'fread' from library(data.table)#
+  # setDF from data.table github, not in current data.table release#
+    if (!is.data.table(x)) stop("setDF only accepts data.table as input")#
+    # copied from as.data.frame.data.table#
+    setattr(x, "row.names", .set_row_names(nrow(x)))#
+    setattr(x, "class", "data.frame")#
+    setattr(x, "sorted", NULL)#
+    setattr(x, ".internal.selfref", NULL)#
+    invisible(x)#
+}#
+#
+reviews <- setDF(fread("~/Documents/School/94832 - S15/NEW-yelp-reviews.csv"))
+reviews <- reviews[, c(2, 4, 7)]
+names(reviews) <- c("user", "rating", "business")
+business <- read.csv("~/Documents/School/94832 - S15/yelp-clusters.csv",
+stringsAsFactors=FALSE)
+business <- read.csv("~/Documents/School/94832 - S15/yelp-clusters.csv",#
+ 					 stringsAsFactors=FALSE)
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { #
+		return(NA) #
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	clusters <- clusters[which(clusters$State == names(which(table(#
+						clusters$State) == max(table(clusters$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+# Test case:#
+user.cluster(reviews$user[3])
+cluster.selector <- function(clusters) {#
+	if (sum(is.na(clusters)) == 1) {#
+		return(NA)#
+	}#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+#
+# Test case:#
+cluster.selector(user.cluster(reviews$user[3]))
+user.cluster <- function(userID) {#
+	# Input: unique user ID string from yelp, like "zvJCcrpm2yOZrxKffwGQLA"#
+	# Output: matrix with the cluster number from the user's rated restaurants, #
+	#		  the distance measure in that cluster, and the rating the user gave#
+	#		  to that restaurant#
+	user <- which(reviews$user == userID)#
+	user.ratings <- reviews[user, 2]#
+	businesses <- reviews[user, 3]#
+	target <- c()#
+	count <- 0#
+	rating <- c()#
+	for (bus in businesses) { # this could be more efficient but who cares#
+		biz <- which(business$ID == bus)#
+		if (length(biz) > 0) {#
+			count <- count + 1#
+			target <- c(target, biz)#
+			rating <- c(rating, user.ratings[count])#
+		}#
+	}#
+	if (length(rating) == 0) { #
+		return(NA) #
+	}#
+	clusters <- cbind(business[target, 2:4], rating)#
+	# just get one state, not all of them#
+	clusters <- clusters[which(clusters$State == names(which(table(#
+						clusters$State) == max(table(clusters$State))))),]#
+	if (nrow(clusters) > 0) {#
+		return(clusters)#
+	}#
+	else {#
+		# NA's will result if the businesses a user rated were not restaurants#
+		# but instead something like a mechanic#
+		return(NA) 	#
+	}#
+}#
+#
+# Test case:#
+is.factor(user.cluster(reviews$user[3]))
+x = user.cluster(reviews$user[3])
+x
+is.factor(x$rating)
+x = sapply(x, unfactor)
+unfactor
+factor
+x = sapply(x, c)
+x
+x = user.cluster(reviews$user[3])
+x
+cluster.selector <- function(clusters) {#
+	if (sum(is.na(clusters)) == 1) {#
+		return(NA)#
+	}#
+	clusters$rating <- as.vector(clusters$rating)#
+	highest.stars <- max(clusters$rating)#
+	highest.stars.index <- which(clusters$rating == max(clusters$rating))#
+	highest.frequency.clusters <- as.integer(names(which(table(#
+								  clusters$Cluster) == max(table(#
+								  clusters$Cluster)))))#
+	clusters.index <- c()#
+	for (cluster in highest.frequency.clusters) {#
+		clusters.index <- c(clusters.index, which(clusters$Cluster == cluster))#
+	}#
+	highest.clusters.index <- sort(clusters.index)#
+	best.cluster <- intersect(highest.stars.index, highest.clusters.index)#
+	if (length(best.cluster) == 1) {#
+		return(clusters[best.cluster, 1])#
+	}#
+	else if (length(best.cluster) > 1) {#
+		return(clusters[sample(best.cluster, 1), 1])#
+	}#
+	else if (length(best.cluster) == 0) {#
+		if (length(highest.stars.index) > 1) {#
+			return(clusters[sample(highest.stars.index, 1), 1])#
+		}#
+		else if (length(highest.stars.index) == 1) {#
+			return(clusters[highest.stars.index, 1])#
+		}#
+		else {#
+			return("There are no highest stars to select!")#
+		}#
+	}#
+	else {#
+		return("Number of clusters < 0!")#
+	}		#
+}#
+#
+# Test case:#
+cluster.selector(user.cluster(reviews$user[3]))
+recommendation <- function(userID) {#
+	previous.restaurants <- reviews[which(reviews$user == userID), 3]#
+	clust <- cluster.selector(user.cluster(userID))#
+	if (sum(is.na(clust)) == 1) { return(NA) }#
+	restaurants <- business[which(business$Cluster == clust), 1]#
+	# exclude restaurants user has been to already#
+	possibilities <- restaurants[!(restaurants %in% previous.restaurants)]#
+	if (length(possibilities) == 0) {#
+		return("No rec")#
+	}#
+	else if (length(possibilities) == 1) {#
+		return(possibilities)#
+	}#
+	else {#
+		return(sample(possibilities, 1))#
+	}#
+}#
+#
+# Run cases:#
+recommendation(reviews$user[3])
+library(shiny)
+ls()
+runExample("01_hello")
+setwd("~/documents/school/94832\ -\ S15")
+runApp("shiny")
+runApp("shiny", display.mode="showcase")
+runExample("02_text")
+runApp("shiny")
